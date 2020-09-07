@@ -10,6 +10,9 @@ Log file format
 3. All the log lines will be separated by a single newline character '\n'. 
 4. Example logline: 2020-01-31T20:12:38.1234Z, Some Field, Other Field, And so on, Till new line,...\n 
 
+Command to run the .exe file:
+`LogExtractor.exe -f "From Time" -t "To Time" -i "Log file directory location"`
+
 Optimisations(which enabled fast searching and printing of logs): 
 - Using ReversedFileReader to check and compare the last line with “from” timestamp was very useful in skipping files which don’t contain the timestamps of given duration 
 - When the file containing the “from” timestamp has been found, to find the line containing “from” timestamp in this file and avoiding checking on every line, we can use the difference(Duration) in the first timestamp of the file and “from” timestamp to defer the checking until these many lines have been skipped. This makes the initial search very fast. 
